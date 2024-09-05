@@ -1,0 +1,192 @@
+\documentclass{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\geometry{left=2cm,right=2cm,top=3.5cm,bottom=3.5cm}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{23020007051}
+\chead{中国海洋大学}
+\rhead{孔维凯}
+\lfoot{\LaTeX{}}
+\cfoot{第 \thepage 页（共\pageref{LastPage}页）}
+\rfoot{\today}
+
+\title{\textbf{Git和LaTeX课程实例报告}}
+\author{\textbf{姓名：孔维凯\ \ \ \ \ \ 学号：23020007051}}
+\date{\underline{\textbf{\today}}}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Git}
+\subsection{实例1}
+\subsubsection{练习内容}
+下载并使用他人的代码
+\subsubsection{结果}
+首先运用git init bare命令初始化一个空仓库，仓库名为bare，再输入cd+bare文件夹地址，然后使用git clone+代码地址将代码文件下载到bare文件夹里，就可以使用了。
+\subsubsection{解题感悟}
+通过这种方式就可以使用他人的代码，省时省力，但是使用前注意要查看协议，不能违反协议使用代码。
+\subsection{实例2}
+\subsubsection{练习内容}
+将git和github账户连接到一起
+\subsubsection{结果}
+输入ssh-keygen -t rsa -b 4096 -C "your\ email@example.com"其中your\ email@example.com改为你的电子邮箱地址，然后输入密钥存储地址，设置密码，然后打开密钥文本复制密钥在github账户上添加SSH密钥后就可以了。
+\subsubsection{解题感悟}
+将git和github账户链接在一起便于使用git从github开源网站上下载他人的代码，便于使用。
+\subsection{实例3}
+\subsubsection{练习内容}
+修改下载文件的地址
+\subsubsection{结果}
+使用cd+文件夹地址就可以将当前默认地址修改为预期地址
+\subsubsection{解题感悟}
+这样做方便使用者快捷查看下载的代码。
+\subsection{实例4}
+\subsubsection{练习内容}
+合并分支、发送合并文件以及删除分支
+\subsubsection{结果}
+git checkout master
+
+git merge +分支名可以合并分支
+
+git push+<远程仓库名> <本地分支名>:<远程分支名>就可以将合并后的更改到远程仓库
+
+git branch -d +分支名可以删除本地分支
+\subsubsection{解题感悟}
+git的指令可以方便用户按照料想快捷完成操作。
+\subsection{实例5}
+\subsubsection{练习内容}
+如何查看基本操作指令和git版本
+\subsubsection{结果}
+输入git help指令即可查看一些基本操作指令，通过输入git version指令可以查看当前git版本
+\subsubsection{解题感悟}
+通过help指令可以快速学习一些基本操作指令，通过version查看版本情况时刻保持版本更新。
+\subsection{实例6}
+\subsubsection{练习内容}
+设置全局用户名和邮箱‌
+\subsubsection{结果}
+通过git config --global user.name+名字来设置全局用户名
+
+通过git config --global user.email+电子邮件地址来设置全局邮箱
+
+通过git config --list指令来显示参数
+\subsubsection{解题感悟}
+这些指令可以帮助识别代码的作者。
+\subsection{实例7}
+\subsubsection{练习内容}
+分支相关指令
+\subsubsection{结果}
+git checkout+分支名用于切换分支
+
+git checkout -b+分支名用于创建并切换到新分支
+
+git branch用于查看git仓库的分支情况
+\subsubsection{解题感悟}
+分支让开发者可以在不影响主分支的情况下进行试验，有利于保护原有代码。
+\subsection{实例8}
+\subsubsection{练习内容}
+提交代码覆盖了别人的代码怎么挽回
+\subsubsection{结果}
+首先使用git log命令找到覆盖之前的提交，用git checkout语句检出那个安全的提交，然后创建一个新分支用于合并开发者的更改，再通过git push语句将开发者的修改发送到远程仓库。
+\subsubsection{解题感悟}
+在使用git的过程中注意不要覆盖别人的代码，要新建分支。
+\subsection{实例9}
+\subsubsection{练习内容}
+使用git下载指定版本代码
+\subsubsection{结果}
+首先使用git clone+地址，进入克隆的文件夹使用cd +文件名，然后查看仓库的历史提交记录，找到想要下载的版本的提交哈希值，使用git checkout+该值切换到指定版本，再使用git log指令确认切换成功。
+\subsubsection{解题感悟}
+通过这种操作用户可以随心选择以前的版本代码，便于用户选择，满足用户需求。
+\subsection{实例10}
+\subsubsection{练习内容}
+解决git冲突
+\subsubsection{结果}
+首先使用git status命令查看冲突的文件，然后取舍保留哪些更改，并删除冲突标记，再使用git add+文件名命令以及git commit指令合并文件。
+\subsubsection{解题感悟}
+git的这种冲突有利于团队合作，防止代码混乱变换。
+\section{LaTeX}
+\subsection{实例1}
+\subsubsection{练习内容}
+将标题、姓名、学号、日期加粗并加下划线
+\subsubsection{结果}
+如果直接对maketitle语句进行操作会使首页变为正文页，而第二页变为原来的首页，不符合预期，经过尝试，发现应该在title、author、date语句中进行操作
+\subsubsection{解题感悟}
+经过这次练习，我明白了maketitle是功能性语句，而如果想要修改标题的内容和格式应该对title、author、date这些信息语句进行修改。
+\subsection{实例2}
+\subsubsection{练习内容}
+在代码下面添加图片并规定图片大小为0.6倍页面宽度，并使图片居中
+\subsubsection{结果}
+首先将图片添加到main.tex文件的下面，然后通过begin\ {figure}环境中的includegraphics[]{}语句中添加图片文件命名，在[]中输入width=0.6textwidth即可将图片调节为0.6倍页面宽度，在begin\ {figure}后加上[h]，就可以使图片出现在代码下面，centering语句使图片居中。
+\subsubsection{解题感悟}
+LaTeX中添加图片很方便，同时还可以规范图片格式，数学论文中可以使用，比其他软件优越。
+\subsection{实例3}
+\subsubsection{练习内容}
+并排添加图片
+\subsubsection{结果}
+通过在begin\ {figure}环境中添加begin\ {minipage}环境在这个环境中就可以并排添加图片了，并且在minipage后添加width=0.4textwidth就可以将每个图片的页面大小调整到整个页面的0.4倍，然后图片的width=
+0.6textwidth并不会超出页面，而是在0.4基础上的0.6也就是0.24倍总页面宽度。
+\subsubsection{解题感悟}
+LaTeX优于Word的地方之一就是可以并排添加图片，同时可以规范图片大小，极为方便
+\subsection{实例4}
+\subsubsection{练习内容}
+让页数自动清点总页数并展示出来
+\subsubsection{结果}
+通过pageref语句中输出LastPage页，但只是这样编译后会出现两个？，这时应该加入宏宝lastpage就可以正常显示了。
+\subsubsection{解题感悟}
+LaTeX通过代码来编译为文本使得软件非常智能，无需亲自清点页数，非常省力。
+\subsection{实例5}
+\subsubsection{练习内容}
+人工输入列表修改时特别繁琐，如何智能列表并在列表中添加内容时自动编号
+\subsubsection{结果}
+通过在begin\ {enumerate}环境中添加\ item语句，然后在item后面书写内容，要修改时直接在中间填入一行item语句，系统自动修改编号，无需手动修改。
+\subsubsection{解题感悟}
+LaTeX的列表功能不仅对仗工整，每个序号都上下对齐而且自动编号，省时省力。
+\subsection{实例6}
+\subsubsection{练习内容}
+让标题独占一页
+\subsubsection{结果}
+通过在maketitle语句下方加入newpage语句就可以使标题独占一页
+\subsubsection{解题感悟}
+这个功能使得整个文本的格式清晰合理。
+\subsection{实例7}
+\subsubsection{练习内容}
+自定义页眉
+\subsubsection{结果}
+文本中有6个页眉区域分别是上左，上中、上右、下左、下中、下右，想要自定义页眉，首先引入fancyhdr宏包，然后使用fancyhf，lhead表示上左，chead表示上中、rhead表示上右、lfoot表示下左、cfoot表示下中、rfoot表示下右，在这6个语句中添加自定义的页眉内容即可。
+\subsubsection{解题感悟}
+通过这种方式自定义的页眉工整，位置恰当，看起来不突兀，很美观。
+\subsection{实例8}
+\subsubsection{练习内容}
+为文本添加目录
+\subsubsection{结果}
+首先注意的一点，系统是以小标题来设计目录的，所以书写标题时要用section、subsection、subsubsection语句，然后通过tableofcontents语句，系统自动规划好目录并呈现给使用者。
+\subsubsection{解题感悟}
+如果人工输入目录，不仅繁琐而且修改复杂，而让系统自动生成就方便许多。
+\subsection{实例9}
+\subsubsection{练习内容}
+设置页面的布局即页面的参数
+\subsubsection{结果}
+首先引入geometry宏包，然后使用geometry语句，
+在语句中书写比如left=2cm,right=2cm,top=3.5cm,
+bottom=3.5cm，参数可以随意更改。
+\subsubsection{解题感悟}
+通过设置页面参数可以使整个文本看起来更加美观，赏心悦目。
+\subsection{实例10}
+\subsubsection{练习内容}
+让系统自动输出当前页数及当前日期
+\subsubsection{结果}
+文章中常常在下中页眉处表明当前页数，但系统默认输出一个数字，但如果你想输出“第几页”，就需要运用cfoot语句的同时用到thepage语句，这个语句可以自动输出当前页数比如“第\ thepage 页”，要注意的是thepage和旁边文字间必须有空格，否则会出错导致无法输出当前页数。
+
+如果要输出当前日期，只需要用到today语句就可以了。
+\subsubsection{解题感悟}
+LaTeX的这些操作减少了使用者的修改工作，大大方便了使用者使用。
+\end{document}

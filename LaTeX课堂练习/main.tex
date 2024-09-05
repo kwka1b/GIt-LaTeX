@@ -1,0 +1,54 @@
+\documentclass{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{lipsum}
+
+\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{23020007051}
+\chead{中国海洋大学}
+\rhead{孔维凯}
+\lfoot{\LaTeX{}}
+\cfoot{第 \thepage 页（共\pageref{LastPage}页）}
+\rfoot{\today}
+
+\title{\textbf{LaTeX课堂练习}}
+\author{\textbf{孔维凯}}
+\date{\underline{\textbf{\today}}}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{815904a17fdc5c4a7e41c3dc798ebccd.jpeg}
+    \caption{孔字图}
+\end{figure}
+\newpage
+
+\section{Introduction}
+\subsection{开头}
+你好呀
+\begin{itemize}
+    \item ABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    \item \textit{ABCAAAAAAAAAAAAAAAAAAAAAAAA}
+\end{itemize}
+
+\begin{center}
+    谢谢你！
+\end{center}
+没关系！
+\subsubsection{开头的开头}
+\lipsum[1-3]
+\subsection{高潮}
+\textbf{\lipsum[1-3]}
+\subsection{结尾}
+\underline{我学废了}
+
+\end{document}
